@@ -1,13 +1,19 @@
-import requests
+from pip._vendor import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
+
+
 
 account_sid = "<twilio account id>"
 auth_token = "<twilio account token>"
 client = Client(account_sid, auth_token)
 
+headers = {
+    "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+}
+
 url = "<url of website you want to check stock on>"
-page = requests.get(url)
+page = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 
