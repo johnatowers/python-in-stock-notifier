@@ -1,4 +1,4 @@
-FROM python3:latest
+FROM python:latest
 
 # # Install dependencies
 # RUN apt-get update && \
@@ -14,4 +14,4 @@ RUN pip3 install requests \
 
 EXPOSE 80
 
-CMD [ "python3", "./in_stock_notifier.py" ]
+CMD [ "*/5 * * * *" "python3", "./in_stock_notifier.py" ]
